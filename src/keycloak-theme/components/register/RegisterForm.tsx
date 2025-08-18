@@ -147,31 +147,6 @@ export function RegisterForm({ kcContext, i18n, className = "" }: Props) {
           )}
         </div>
 
-        {/* Terms and Privacy */}
-        <div className="space-y-3">
-          <div className="flex items-start space-x-2">
-            <Checkbox id="terms" name="terms" required className="mt-1" />
-            <Label htmlFor="terms" className="text-sm leading-5">
-              I agree to the{" "}
-              <a href="#terms" className="text-primary hover:underline">
-                Terms of Service
-              </a>{" "}
-              and{" "}
-              <a href="#privacy" className="text-primary hover:underline">
-                Privacy Policy
-              </a>
-            </Label>
-          </div>
-
-          <div className="flex items-start space-x-2">
-            <Checkbox id="newsletter" name="newsletter" className="mt-1" />
-            <Label htmlFor="newsletter" className="text-sm leading-5">
-              I would like to receive updates about FOODMISSION research and
-              findings
-            </Label>
-          </div>
-        </div>
-
         <Button type="submit" className="w-full">
           {msgStr("doRegister")}
         </Button>
