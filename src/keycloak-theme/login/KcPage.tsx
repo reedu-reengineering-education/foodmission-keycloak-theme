@@ -6,6 +6,7 @@ import { Terms } from "../pages/Terms";
 import { UpdatePassword } from "../pages/UpdatePassword";
 import { UpdateProfile } from "../pages/UpdateProfile";
 import { Error } from "../pages/Error";
+import { DeleteAccountConfirm } from "../pages/DeleteAccountConfirm";
 import { useI18n } from "../i18n";
 
 interface Props {
@@ -37,6 +38,9 @@ export default function KcPage({ kcContext }: Props) {
 
     case "error.ftl":
       return <Error kcContext={kcContext} i18n={i18n} />;
+
+    case "delete-account-confirm.ftl":
+      return <DeleteAccountConfirm kcContext={kcContext} i18n={i18n} />;
 
     default:
       return (
