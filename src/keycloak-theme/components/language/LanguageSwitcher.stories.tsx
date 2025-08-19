@@ -1,12 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { LanguageSwitcher } from "./LanguageSwitcher";
-import { mockKcContext } from "@/dev/mock-keycloak";
+import { mockKcContext } from "../../test-utils/mockKcContext";
+import { createMockI18n } from "../../test-utils/mockI18n";
 
 const meta: Meta<typeof LanguageSwitcher> = {
-  title: "Components/Language/LanguageSwitcher",
+  title: "FOODMISSION Theme/Components/Language Switcher",
   component: LanguageSwitcher,
   parameters: {
     layout: "centered",
+    docs: {
+      description: {
+        component:
+          "Language switcher component for multi-language support in FOODMISSION theme.",
+      },
+    },
   },
   tags: ["autodocs"],
 };
@@ -14,25 +21,7 @@ const meta: Meta<typeof LanguageSwitcher> = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Mock i18n for stories
-const mockI18n = {
-  currentLanguage: {
-    languageTag: "en",
-    label: "English",
-  },
-  enabledLanguages: [
-    { languageTag: "en", label: "English", href: "#en" },
-    { languageTag: "de", label: "Deutsch", href: "#de" },
-    { languageTag: "fr", label: "Français", href: "#fr" },
-    { languageTag: "es", label: "Español", href: "#es" },
-    { languageTag: "it", label: "Italiano", href: "#it" },
-  ],
-  msgStr: (key: string) => key,
-  advancedMsgStr: (key: string) => key,
-  msg: (key: string) => key,
-  advancedMsg: (key: string) => key,
-  isFetchingTranslations: false,
-} as any;
+const mockI18n = createMockI18n();
 
 export const Default: Story = {
   args: {

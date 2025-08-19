@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { UpdatePassword } from "./UpdatePassword";
-import { mockContexts } from "../../dev/mock-keycloak";
+import { mockContexts } from "../test-utils/mockKcContext";
 
 const meta: Meta<typeof UpdatePassword> = {
-  title: "Keycloak Pages/Update Password",
+  title: "FOODMISSION Theme/Pages/Update Password",
   component: UpdatePassword,
   parameters: {
     layout: "fullscreen",

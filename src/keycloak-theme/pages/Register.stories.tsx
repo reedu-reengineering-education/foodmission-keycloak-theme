@@ -4,11 +4,18 @@ import { createRegisterMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof Register> = {
-  title: "Keycloak/Pages/Register",
+  title: "FOODMISSION Theme/Pages/Register",
   component: Register,
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "User registration page with FOODMISSION branding and validation.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;

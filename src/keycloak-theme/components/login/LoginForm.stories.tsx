@@ -4,7 +4,7 @@ import { createLoginMockKcContext } from "../../test-utils/mockKcContext";
 import { createMockI18n } from "../../test-utils/mockI18n";
 
 const meta: Meta<typeof LoginForm> = {
-  title: "Keycloak Components/LoginForm",
+  title: "FOODMISSION Theme/Components/Login Form",
   component: LoginForm,
   parameters: {
     layout: "centered",

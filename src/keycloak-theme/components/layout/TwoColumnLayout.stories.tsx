@@ -1,48 +1,31 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { TwoColumnLayout } from "./TwoColumnLayout";
-import { mockKcContext } from "@/dev/mock-keycloak";
+import { mockKcContext } from "../../test-utils/mockKcContext";
+import { createMockI18n } from "../../test-utils/mockI18n";
+import { LanguageSwitcher } from "../language";
 
 const meta: Meta<typeof TwoColumnLayout> = {
-  title: "Layout/TwoColumnLayout",
+  title: "FOODMISSION Theme/Layout/Two Column Layout",
   component: TwoColumnLayout,
+  subcomponents: {
+    LanguageSwitcher: LanguageSwitcher,
+  },
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Two-column layout with branding section and form content for FOODMISSION theme.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
 type Story = StoryObj<typeof TwoColumnLayout>;
 
-// Mock i18n for stories
-const mockI18n = {
-  currentLanguage: {
-    languageTag: "en",
-    label: "English",
-  },
-  enabledLanguages: [
-    { languageTag: "en", label: "English", href: "#en" },
-    { languageTag: "de", label: "Deutsch", href: "#de" },
-    { languageTag: "fr", label: "Français", href: "#fr" },
-  ],
-  msgStr: (key: string) => {
-    const messages: Record<string, string> = {
-      "foodmission.welcome": "Welcome to FOODMISSION",
-      "foodmission.description":
-        "Join our citizen science project for healthy food consumption and food waste reduction",
-    };
-    return messages[key] || key;
-  },
-  advancedMsgStr: (key: string) => key,
-  msg: (key: string) => key,
-  advancedMsg: (key: string) => key,
-  currentLanguageTag: "en" as const,
-  getChangeLocaleUrl: () => "#",
-  labelBySupportedLanguageTag: {},
-  isFetchingTranslations: false,
-  isRTL: false,
-  formatDate: (date: Date) => date.toLocaleDateString(),
-  formatNumber: (number: number) => number.toString(),
-} as any;
+const mockI18n = createMockI18n();
 
 export const Default: Story = {
   args: {

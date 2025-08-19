@@ -19,7 +19,8 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest --watch",
     "validate-theme": "node scripts/validate-theme.js",
-    "deploy": "./scripts/deploy-theme.sh"
+    "deploy": "./scripts/deploy-theme.sh",
+    "email": "email preview ./src/keycloak-theme/email/templates"
   },
   "dependencies": {
     "@fontsource/open-sans": "^5.2.6",
@@ -32,7 +33,9 @@
     "@tailwindcss/vite": "^4.1.11",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "jsx-email": "^2.7.2",
     "keycloakify": "^11.8.57",
+    "keycloakify-emails": "^3.2.0",
     "lucide-react": "^0.536.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -82,5 +85,6 @@
     "typescript"
   ],
   "author": "FOODMISSION Project",
-  "license": "MIT"
+  "license": "MIT",
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

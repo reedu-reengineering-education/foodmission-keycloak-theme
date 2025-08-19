@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { DeleteAccountConfirm } from "./DeleteAccountConfirm";
 import { createGetKcContextMock } from "keycloakify/login/KcContext";
 import type { KcContext } from "../kcContext";
+import { createMockI18n } from "../test-utils/mockI18n";
 
 const { getKcContextMock } = createGetKcContextMock({
   kcContextExtension: {} as KcContext,
@@ -10,27 +11,24 @@ const { getKcContextMock } = createGetKcContextMock({
 });
 
 const meta: Meta<typeof DeleteAccountConfirm> = {
-  title: "login/DeleteAccountConfirm",
+  title: "FOODMISSION Theme/Pages/Delete Account",
   component: DeleteAccountConfirm,
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Account deletion confirmation page requiring password verification.",
+      },
+    },
+  },
+  tags: ["autodocs"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const mockI18n = {
-  msg: (key: string) => {
-    const messages: Record<string, string> = {
-      doConfirmDelete: "Delete My Account",
-      doCancel: "Cancel",
-      password: "Password",
-    };
-    return messages[key] || key;
-  },
-  msgStr: (key: string) => key,
-  getMsg: (key: string) => key,
-  currentLanguageTag: "en" as const,
-  enabledLanguages: [],
-};
+const mockI18n = createMockI18n();
 
 export const Default: Story = {
   render: () => {
@@ -40,8 +38,9 @@ export const Default: Story = {
         messagesPerField: {
           existsError: () => false,
           getFirstError: () => "",
-          get: () => [],
-          fieldNames: [],
+          get: () => "",
+          exists: () => false,
+          printIfExists: () => undefined,
         },
       },
     });
@@ -59,8 +58,10 @@ export const WithPasswordError: Story = {
           existsError: (field: string) => field === "password",
           getFirstError: (field: string) =>
             field === "password" ? "Invalid password" : "",
-          get: () => [],
-          fieldNames: ["password"],
+          get: (field: string) =>
+            field === "password" ? "Invalid password" : "",
+          exists: () => false,
+          printIfExists: () => undefined,
         },
       },
     });

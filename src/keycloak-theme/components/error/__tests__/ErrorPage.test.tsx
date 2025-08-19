@@ -2,20 +2,6 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { ErrorPage } from "../ErrorPage";
 
-// Mock the theme config hook
-vi.mock("@/lib/use-theme-config", () => ({
-  useThemeConfig: () => ({
-    branding: {
-      projectName: "FOODMISSION",
-      primaryColor: "hsl(142 76% 36%)",
-      secondaryColor: "hsl(24 100% 50%)",
-    },
-    content: {
-      supportEmail: "support@foodmission.eu",
-    },
-  }),
-}));
-
 // Mock window methods
 const mockReload = vi.fn();
 const mockBack = vi.fn();

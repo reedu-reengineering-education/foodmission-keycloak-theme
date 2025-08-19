@@ -4,11 +4,18 @@ import { createUpdateProfileMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof UpdateProfile> = {
-  title: "Keycloak/Pages/UpdateProfile",
+  title: "FOODMISSION Theme/Pages/Update Profile",
   component: UpdateProfile,
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Profile update page where users can modify their account information.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;

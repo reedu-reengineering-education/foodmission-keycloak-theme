@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Info } from "./Info";
 import { createGetKcContextMock } from "keycloakify/login/KcContext";
 import type { KcContext } from "../kcContext";
+import { createMockI18n } from "../test-utils/mockI18n";
 
 const { getKcContextMock } = createGetKcContextMock({
   kcContextExtension: {} as KcContext,
@@ -10,27 +11,24 @@ const { getKcContextMock } = createGetKcContextMock({
 });
 
 const meta: Meta<typeof Info> = {
-  title: "login/Info",
+  title: "FOODMISSION Theme/Pages/Info",
   component: Info,
+  parameters: {
+    layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Information page displaying status messages and action confirmations.",
+      },
+    },
+  },
+  tags: ["autodocs"],
 };
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-const mockI18n = {
-  msg: (key: string) => {
-    const messages: Record<string, string> = {
-      infoTitle: "Information",
-      backToApplication: "« Back to application",
-      proceedWithAction: "Continue",
-    };
-    return messages[key] || key;
-  },
-  msgStr: (key: string) => key,
-  getMsg: (key: string) => key,
-  currentLanguageTag: "en" as const,
-  enabledLanguages: [],
-};
+const mockI18n = createMockI18n();
 
 export const AccountDeleted: Story = {
   render: () => {

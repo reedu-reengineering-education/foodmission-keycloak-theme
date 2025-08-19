@@ -4,7 +4,7 @@ import { createLoginMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof Login> = {
-  title: "Keycloak Pages/Login",
+  title: "FOODMISSION Theme/Pages/Login",
   component: Login,
   parameters: {
     layout: "fullscreen",

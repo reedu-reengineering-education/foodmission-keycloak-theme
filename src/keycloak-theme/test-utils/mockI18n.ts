@@ -1,3 +1,4 @@
+import React from "react";
 import type { I18n } from "../i18n";
 
 /**
@@ -16,8 +17,7 @@ export function createMockI18n(): I18n {
     ],
     advancedMsgStr: (key: string) => key,
     isFetchingTranslations: false,
-    msg: (key: string) => ({ type: "span", props: { children: key } } as any),
-    advancedMsg: (key: string) =>
-      ({ type: "span", props: { children: key } } as any),
+    msg: (key: string) => React.createElement("span", {}, key),
+    advancedMsg: (key: string) => React.createElement("span", {}, key),
   };
 }

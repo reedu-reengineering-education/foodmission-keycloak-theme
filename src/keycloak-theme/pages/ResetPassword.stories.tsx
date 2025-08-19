@@ -4,11 +4,18 @@ import { createResetPasswordMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof ResetPassword> = {
-  title: "Keycloak/Pages/ResetPassword",
+  title: "FOODMISSION Theme/Pages/Reset Password",
   component: ResetPassword,
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Password reset page where users can request a password reset email.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;

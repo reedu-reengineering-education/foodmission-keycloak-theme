@@ -4,11 +4,18 @@ import { createTermsMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof Terms> = {
-  title: "Pages/Terms",
+  title: "FOODMISSION Theme/Pages/Terms",
   component: Terms,
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Terms and conditions acceptance page for user registration.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;

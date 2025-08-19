@@ -2,29 +2,6 @@ import React from "react";
 import { render, RenderOptions } from "@testing-library/react";
 import { vi } from "vitest";
 
-// Mock theme configuration for tests
-export const mockThemeConfig = {
-  branding: {
-    logoUrl: "/test-logo.png",
-    primaryColor: "hsl(142 76% 36%)",
-    secondaryColor: "hsl(24 100% 50%)",
-    projectName: "FOODMISSION",
-  },
-  content: {
-    welcomeMessage: "Welcome to FOODMISSION",
-    projectDescription:
-      "EU-funded citizen science project for healthy food consumption and food waste reduction",
-    supportEmail: "test@foodmission.eu",
-    privacyPolicyUrl: "https://test.com/privacy",
-    termsOfServiceUrl: "https://test.com/terms",
-  },
-  features: {
-    socialLogin: false,
-    selfRegistration: true,
-    passwordReset: true,
-  },
-};
-
 // Mock i18n messages for tests
 export const mockI18nMessages: Record<string, string> = {
   "auth.login.title": "Sign in to FOODMISSION",
@@ -68,11 +45,6 @@ const customRender = (
 
 // Setup function for common test mocks
 export const setupTestMocks = () => {
-  // Mock theme config hook
-  vi.mock("../lib/use-theme-config", () => ({
-    useThemeConfig: () => mockThemeConfig,
-  }));
-
   // Mock i18n hook
   vi.mock("../keycloak-theme/i18n", () => ({
     useI18n: () => ({
@@ -160,7 +132,6 @@ export const createMockKcContext = (overrides = {}) => ({
   messagesPerField: {},
   isAppInitiatedAction: false,
   pageId: "login.ftl" as const,
-  properties: mockThemeConfig,
   ...overrides,
 });
 

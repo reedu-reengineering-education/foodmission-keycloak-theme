@@ -4,11 +4,18 @@ import { createBaseMockKcContext } from "../test-utils/mockKcContext";
 import { createMockI18n } from "../test-utils/mockI18n";
 
 const meta: Meta<typeof Error> = {
-  title: "keycloak-theme/Error",
+  title: "FOODMISSION Theme/Pages/Error",
   component: Error,
   parameters: {
     layout: "fullscreen",
+    docs: {
+      description: {
+        component:
+          "Error page displayed when authentication or system errors occur.",
+      },
+    },
   },
+  tags: ["autodocs"],
 };
 
 export default meta;
